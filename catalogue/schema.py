@@ -9,6 +9,7 @@ class AuthorNode(DjangoObjectType):
     class Meta:
         model = Author
         filter_fields = ('alias','date_of_birth', 'produced_books')
+        fields = '__all__'
         interfaces = (relay.Node, )
 
 
@@ -21,6 +22,7 @@ class CategoryNode(DjangoObjectType):
             # 'book__name': ['exact'],
         }
         interfaces = (relay.Node,)
+        fields = '__all__'
 
 
 class BookNode(DjangoObjectType):
@@ -34,6 +36,7 @@ class BookNode(DjangoObjectType):
             # 'author__name': ['exact'], 
             }
         interfaces = (relay.Node,)
+        fields = '__all__'
 
 
 class Query(ObjectType):
